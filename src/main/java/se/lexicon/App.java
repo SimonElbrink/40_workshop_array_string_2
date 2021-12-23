@@ -1,5 +1,7 @@
 package se.lexicon;
 
+import java.util.Arrays;
+
 /**
  * Hello world!
  *
@@ -11,7 +13,7 @@ public class App
         int size = NameRepository.getSize();
         System.out.println("size = " + size); //0
 
-        String[] g40 = {"Pär", "Susanne", "Antoine", "Simon", "Emil"};
+        String[] g40 = {"Pär Törnell", "Susanne Cederholm", "Susanne Petersson", "Antoine Rebelo", "Simon Elbrink", "Emil Johansson"};
 
         NameRepository.setNames(g40);
 
@@ -38,6 +40,32 @@ public class App
         for (String name : all1) {
             System.out.println(name);
         }
+
+
+        String foundName = NameRepository.find("pär");
+
+        System.out.println("foundName = " + foundName);
+
+
+        NameRepository.add("Erik Svensson");
+
+        System.out.println(Arrays.toString(NameRepository.findAll()));
+
+
+        NameRepository.add("Ulf Begntsson");
+
+        System.out.println(Arrays.toString(NameRepository.findAll()));
+
+
+        System.out.println(Arrays.toString(NameRepository.findByFirstName("Susanne")));
+
+        System.out.println(NameRepository.update("Susanne Petersson", "Susanna Elbrink"));
+
+        System.out.println(Arrays.toString(NameRepository.findByLastName("Elbrink")));
+
+        System.out.println(NameRepository.remove("Simon Elbrink"));
+
+        System.out.println(NameRepository.find("Simon Elbrink"));
 
 
     }
